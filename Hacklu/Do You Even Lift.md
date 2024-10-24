@@ -1,4 +1,4 @@
-![alt text]([https://github.com/Gungilr/WriteUps/blob/main/Pasted%20image%2020241023223734.png](https://github.com/Gungilr/WriteUps/blob/main/Hacklu/Pasted%20image%2020241023223734.png))
+![alt text](https://github.com/Gungilr/WriteUps/blob/main/Hacklu/Pasted%20image%2020241023223734.png)
 
 This challenge is the basic rev challenge of the CTF. The downloaded file is a llvm file in the typically format of a encrypted key that you have to unencrypt by reversing engineering the algorithm.
 
