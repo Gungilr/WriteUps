@@ -59,11 +59,11 @@ The compiler `VerifyProofStatrement` is simply the syntax breakdown, and the com
 
 Seeing the mention of the flag in the function sets our goal to run this function properly. So let's break down how that works. Starting from the top of the function we see the the function pop 2 values off the stack, meaning it takes 2 variables as inputs.
 
-![Stack Pops](https://github.com/Gungilr/WriteUps/blob/main/PwnMe%202025/img/Pasted%20image%2020250417174630.png?raw=true)
+![Stack Pops](https://github.com/Gungilr/WriteUps/blob/main/PwnMe%202025/img/Pasted%20image%2020250417174831.png?raw=true)
 
 Following that section of code we spot the key branch condition we need to fulfill to get to the flag.
 
-![Branch Condition](https://github.com/Gungilr/WriteUps/blob/main/PwnMe%202025/img/Pasted%20image%2020250417174831.png?raw=true)
+![Branch Condition](https://github.com/Gungilr/WriteUps/blob/main/PwnMe%202025/img/Pasted%20image%2020250417175330.png?raw=true)
 
 
 The disassembly shows us the two conditions that need to be satisfied the mathematical function:
