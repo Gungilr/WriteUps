@@ -33,7 +33,7 @@ At this point it's hard to get any more relevant information on the file without
 
 Let's start with the main function since that's where the program starts:
 
-![Main Function](hhttps://github.com/Gungilr/WriteUps/blob/main/PwnMe%202025/img/Pasted%20image%2020250416002327.png?raw=true)
+![Main Function](https://github.com/Gungilr/WriteUps/blob/main/PwnMe%202025/img/Pasted%20image%2020250416002327.png?raw=true)
 
 The first things that is of immediate note is the various flags that our mini compiler takes. Things like the Debug mode and disassembly might be useful during the testing process.
 
@@ -45,25 +45,25 @@ The line of interest to us in the image is the call function to `github_com_Lext
 
 Following the function calls shows us this set of instructions:
 
-![Lifter Compile](https://github.com/Gungilr/WriteUps/blob/main/PwnMe%202025/img/Pasted%20image%2020250416003429.png?raw=true)
+![Lifter Compile](https://github.com/Gungilr/WriteUps/blob/main/PwnMe%202025/img/Pasted%20image%2020250416003142.png?raw=true)
 
 Remembering back to the parser location that we got from the error message, this is where its called. Looking for where this file is within the decompile we find a family of files that are interesting to us. The code is split into 2 sections, a vm section and and a compiler function, which suggests that the program is compiling the code then executing it.
 
-![Compiler Files](https://github.com/Gungilr/WriteUps/blob/main/HackLu%202024/Pasted%20image%20202416003429.png?raw=true)
+![Compiler Files](https://github.com/Gungilr/WriteUps/blob/main/PwnMe%202025/img/Pasted%20image%2020250416003429.png?raw=true)
 
 This folder more or less contains all the compiler code we need to understand the syntax of the custom mimi language that we need to write. However, digging through all this code will take a while(I did it anyways because this was sick). So let's focus on what stands out. Immediately one function stands out to me, `VerifyProofStatrement`. Unlike the other functions, this function doesn't make sense within the compiler so let's take a closer look at it.
 
 The compiler `VerifyProofStatrement` is simply the syntax breakdown, and the compiling the function, whereas the `VerifyProofStatrement` of the VM section has some very interesting information.
 
-![VerifyProof Function](https://github.com/Gungilr/WriteUps/blob/main/HackLu%202024/Pasted%20image%20202417174630.png?raw=true)
+![VerifyProof Function](https://github.com/Gungilr/WriteUps/blob/main/PwnMe%202025/img/Pasted%20image%2020250417174627.png?raw=true)
 
 Seeing the mention of the flag in the function sets our goal to run this function properly. So let's break down how that works. Starting from the top of the function we see the the function pop 2 values off the stack, meaning it takes 2 variables as inputs.
 
-![Stack Pops](https://github.com/Gungilr/WriteUps/blob/main/HackLu%202024/Pasted%20image%20202417174900.png?raw=true)
+![Stack Pops](https://github.com/Gungilr/WriteUps/blob/main/PwnMe%202025/img/Pasted%20image%2020250417174630.png?raw=true)
 
 Following that section of code we spot the key branch condition we need to fulfill to get to the flag.
 
-![Branch Condition](https://github.com/Gungilr/WriteUps/blob/main/HackLu%202024/Pasted%20image%20202417175330.png?raw=true)
+![Branch Condition](https://github.com/Gungilr/WriteUps/blob/main/PwnMe%202025/img/Pasted%20image%2020250417174831.png?raw=true)
 
 
 The disassembly shows us the two conditions that need to be satisfied the mathematical function:
@@ -109,4 +109,4 @@ Finding a solution for this set of conditions is relatively simple, given the li
 
 
 Calling the Verify Proof function with these numbers gets us the flag:
-![[Pasted image 20250417185316.png]]
+![flag](https://github.com/Gungilr/WriteUps/blob/main/PwnMe%202025/img/Pasted%20image%2020250417185316.png)
